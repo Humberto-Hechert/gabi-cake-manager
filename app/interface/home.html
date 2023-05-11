@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro de Cliente</title>
+	<link rel="stylesheet" href="/styles/homeStyle.css">
+</head>
+<body>
+	<div class="container">
+		<form action="/sendCustomer" method="POST">
+			<h1>Cadastro de Cliente</h1>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome">
+
+			<label for="telefone">Telefone</label>
+			<input type="text" id="Telefone" name="telefone" required>
+
+			<label for="sabor">Sabor</label>
+			<input type="text" id="sabor" name="sabor" required>
+
+			<label for="quantidade">Quantidade</label>
+			<input type="text" id="quantidade" name="quantidade" required>
+
+			<label for="preco">Preço</label>
+			<input type="text" id="preco" name="preco" required>
+
+			<button type="submit" id="Cadastro">Cadastrar</button>
+			<button type="submit" id="Listar">Listar Clientes</button>
+		</form>
+	</div>
+</body>
+</html>
