@@ -3,7 +3,7 @@ const connection = require("./dbConnect")
 class customerController {
     
     home(req, res){
-        res.sendFile(__dirname + '/interface/home.html')
+        res.render("homeView")
     }
 
     sendCustomer(req, res){
@@ -15,9 +15,17 @@ class customerController {
                 throw err
             }
             console.log("Cliente cadastrado com sucesso!")
-            res.sendFile(__dirname + '/interface/customerRegistered.html')
+            res.render("customerRegisteredView")
         })
-        
+    }
+
+    getCustomers(req, res){
+      connection.query('SELECT * FROM customers', (err, results) => {
+        if (err){
+          throw err
+        }
+        res.render("getCustomersView", {data : results})
+      })
     }
 }
 

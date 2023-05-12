@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabela de Clientes</title>
+  <link rel="stylesheet" href="/styles/getCustomers.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tabela de Clientes</h1>
+
+    <table id="clientes-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Sabor</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <% data.forEach(function(cliente) { %>
+        <tr>
+          <td><%= cliente.nome %></td>
+          <td><%= cliente.telefone %></td>
+          <td><%= cliente.sabor %></td>
+          <td><%= cliente.quantidade %></td>
+          <td><%= cliente.preco %></td>
+        </tr>
+      <% }); %>
+    </table>
+  </div>
+</body>
+</html>
