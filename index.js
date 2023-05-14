@@ -7,6 +7,7 @@ const connection = require('./app/dbConnect')
 require('dotenv/config')
 
 const app = express()
+
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json())
 app.set('view engine', 'ejs');

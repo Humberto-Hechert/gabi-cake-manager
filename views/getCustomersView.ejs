@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tabela de Clientes</title>
+  <title>Exemplo DataTables</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="/styles/getCustomers.css">
 </head>
 <body>
   <div class="container">
-    <h1>Tabela de Clientes</h1>
-
-    <table id="clientes-table">
+    <h1>Lista de Clientes</h1>
+    <table id="example" class="display">
       <thead>
         <tr>
           <th>Nome</th>
@@ -18,16 +19,26 @@
           <th>Preço</th>
         </tr>
       </thead>
-      <% data.forEach(function(cliente) { %>
-        <tr>
-          <td><%= cliente.nome %></td>
-          <td><%= cliente.telefone %></td>
-          <td><%= cliente.sabor %></td>
-          <td><%= cliente.quantidade %></td>
-          <td><%= cliente.preco %></td>
-        </tr>
-      <% }); %>
+      <tbody>
+        <% data.forEach(function(cliente) { %>
+          <tr>
+            <td><%= cliente.nome %></td>
+            <td><%= cliente.telefone %></td>
+            <td><%= cliente.sabor %></td>
+            <td><%= cliente.quantidade %></td>
+            <td><%= cliente.preco %></td>
+          </tr>
+        <% }); %>
+      </tbody>
     </table>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    });
+  </script>
 </body>
 </html>
