@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Lista de Clientes</h1>
-    <table id="example" class="display">
+    <table id="tabela_clientes" class="display">
       <thead>
         <tr>
           <th>Nome</th>
@@ -17,6 +17,7 @@
           <th>Sabor</th>
           <th>Quantidade</th>
           <th>Preço</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,10 @@
             <td><%= cliente.sabor %></td>
             <td><%= cliente.quantidade %></td>
             <td><%= cliente.preco %></td>
+            <td class="actions">
+              <a href="#" onclick="editCustomer('<%= cliente.id %>')" title="Editar"><i class="fas fa-edit icon"></i></a>
+              <a href="#" onclick="deleteCustomer('<%= cliente.id %>')" title="Excluir"><i class="fas fa-trash-alt icon"></i></a>
+            </td>
           </tr>
         <% }); %>
       </tbody>
@@ -37,8 +42,46 @@
   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#example').DataTable();
+      $('#tabela_clientes').DataTable({
+        searching: true,
+        lengthChange: true,
+        paging: true,
+        language: {
+          search: "Pesquisar:",
+          lengthMenu: "Exibir _MENU_ registros por página",
+          zeroRecords: "Nenhum registro encontrado",
+          info: "Exibindo página _PAGE_ de _PAGES_",
+          infoEmpty: "Sem registros disponíveis",
+          paginate: {
+            first: "Primeira",
+            previous: "Anterior",
+            next: "Próxima",
+            last: "Última"
+          }
+        }
+      });
     });
+
+    function editCustomer(id) {
+      window.location.href = '/editCustomer/' + id + '/editar';
+    }
+
+    function deleteCustomer(id) {
+      if (confirm('Deseja excluir o usuário?')) {
+        // Enviar uma requisição DELETE para a rota de exclusão com o ID do usuário
+        $.ajax({
+          url: '/deleteCustomer/' + id,
+          type: 'DELETE',
+          success: function() {
+            // Recarregar a página após a exclusão
+            location.reload();
+          },
+          error: function() {
+            alert('Erro ao excluir o usuário.');
+          }
+        });
+      }
+    }
   </script>
 </body>
 </html>

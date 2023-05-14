@@ -18,11 +18,15 @@ const port = process.env.PORT || 3030
 
 const customerController = new CustomerController()
 
-app.get('/home', customerController.home)
+app.get('/', customerController.home)
 
 app.post('/sendCustomer', customerController.sendCustomer)
 
 app.get('/getCustomers', customerController.getCustomers)
+
+app.put('/editCustomer/:id', customerController.editCustomer)
+
+app.delete('/deleteCustomer/:id', customerController.deleteCustomer)
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

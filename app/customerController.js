@@ -1,3 +1,4 @@
+//const Connection = require("mysql2/typings/mysql/lib/Connection")
 const connection = require("./dbConnect")
 
 class customerController {
@@ -27,6 +28,39 @@ class customerController {
         res.render("getCustomersView", {data : results})
       })
     }
+
+    editCustomer(req, res){
+      const id = req.params.id
+      const { nome, telefone, sabor, quantidade, preco } = req.body
+      const sql = 'UPDATE customers SET nome = ?, telefone = ?, sabor = ?, quantidade = ?, preco = ? WHERE id = ?'
+
+      connection.query(sql, 
+        [nome, telefone, sabor, quantidade, preco], 
+        (err, results) => {
+          if(err){
+            console.error(err)
+            res.sendStatus(500)
+          } else {
+            res.sendStatus(200)
+          }
+        })
+    }
+
+    deleteCustomer(req, res){
+      const id = req.params.id
+      const sql = 'DELETE from customers WHERE id = ?'
+
+      connection.query(sql, [id], (err, results) => {
+        if(err){
+          console.error(err)
+          res.sendStatus(500)
+        } else {
+          res.sendStatus(200)
+        }
+      })
+    }
+
+    
 }
 
 module.exports = customerController
