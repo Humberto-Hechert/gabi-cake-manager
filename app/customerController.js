@@ -1,4 +1,3 @@
-//const Connection = require("mysql2/typings/mysql/lib/Connection")
 const connection = require("./dbConnect")
 
 class customerController {
@@ -21,6 +20,7 @@ class customerController {
     }
 
     getCustomers(req, res){
+      const id = 0
       connection.query('SELECT * FROM customers', (err, results) => {
         if (err){
           throw err
@@ -31,11 +31,11 @@ class customerController {
 
     editCustomer(req, res){
       const id = req.params.id
-      const { nome, telefone, sabor, quantidade, preco } = req.body
       const sql = 'UPDATE customers SET nome = ?, telefone = ?, sabor = ?, quantidade = ?, preco = ? WHERE id = ?'
+      const { nome, telefone, sabor, quantidade, preco } = req.body
 
       connection.query(sql, 
-        [nome, telefone, sabor, quantidade, preco], 
+        [nome, telefone, sabor, quantidade, preco, id], 
         (err, results) => {
           if(err){
             console.error(err)

@@ -20,9 +20,9 @@ const customerController = new CustomerController()
 
 app.get('/', customerController.home)
 
-app.post('/sendCustomer', customerController.sendCustomer)
-
 app.get('/getCustomers', customerController.getCustomers)
+
+app.post('/sendCustomer', customerController.sendCustomer)
 
 app.put('/editCustomer/:id', customerController.editCustomer)
 
