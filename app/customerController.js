@@ -15,7 +15,7 @@ class customerController {
                 throw err
             }
             console.log("Cliente cadastrado com sucesso!")
-            res.render("customerRegisteredView")
+            res.render("homeView")
         })
     }
 

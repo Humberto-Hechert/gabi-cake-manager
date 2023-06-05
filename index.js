@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const ejs = require('ejs')
 const CustomerController = require('./app/customerController')
-const connection = require('./app/dbConnect')
 require('dotenv/config')
 
 const app = express()
@@ -20,13 +19,13 @@ const customerController = new CustomerController()
 
 app.get('/', customerController.home)
 
-app.get('/getCustomers', customerController.getCustomers)
+app.get('/customer', customerController.getCustomers)
 
-app.post('/sendCustomer', customerController.sendCustomer)
+app.post('/customer', customerController.sendCustomer)
 
-app.put('/editCustomer/:id', customerController.editCustomer)
+app.put('/customer/:id', customerController.editCustomer)
 
-app.delete('/deleteCustomer/:id', customerController.deleteCustomer)
+app.delete('/customer/:id', customerController.deleteCustomer)
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

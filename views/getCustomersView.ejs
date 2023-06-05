@@ -72,7 +72,7 @@
       if (newNome && newTelefone && newSabor && newQuantidade && newPreco) {
         // Enviar uma requisição PUT para a rota de atualização com os dados editados
         $.ajax({
-          url: '/editCustomer/' + id,
+          url: '/customer/' + id,
           type: 'PUT',
           data: {
             nome: newNome,
@@ -96,7 +96,7 @@
       if (confirm('Deseja excluir o usuário?')) {
         // Enviar uma requisição DELETE para a rota de exclusão com o ID do usuário
         $.ajax({
-          url: '/deleteCustomer/' + id,
+          url: '/customer/' + id,
           type: 'DELETE',
           success: function() {
             // Recarregar a página após a exclusão

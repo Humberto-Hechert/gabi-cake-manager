@@ -47,23 +47,30 @@ input {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	transition: all 0.3s ease;
+	margin-bottom: 10px;
 	
 }
 
-#Listar {
+.Listar {
+	display: inline-block;
 	background-color: #4cc9f0;
 	color: #f72585;
 	padding: 10px 20px;
-	margin: 15px 0;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	transition: all 0.3s ease;
-	text-align: center;
 	text-decoration: none;
-	
+	width: 94.5%;
+	text-align: center;
 }
+
+.Listar:hover {
+	background-color: #43a6c6;
+}
+
+
 
 button:hover {
 	background-color: #43a6c6;

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="/sendCustomer" method="POST">
+		<form action="/customer" method="POST">
 			<h1>Gabi Cake Manager</h1>
 			<label for="nome">Nome:</label>
 			<input type="text" id="nome" name="nome">
@@ -23,9 +23,11 @@
 			<label for="preco">Preço</label>
 			<input type="text" id="preco" name="preco" required>
 
-			<button type="submit" id="Cadastro">CADASTRAR</button>
-			<a href="/getCustomers" id="Listar">LISTAR CLIENTES</a>
+			<button type="submit" onclick="(alert('Cliente Cadastrado'))" id="Cadastro">CADASTRAR</button>
 		</form>
+
+		<a href="/customer" class="Listar">LISTAR CLIENTES</a>
+
 	</div>
 </body>
 </html>
